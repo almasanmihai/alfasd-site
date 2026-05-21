@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const title = 'Despre noi';
+const description =
+  'Alfa Structural Design — peste 500 de proiecte din 2006. Echipă de ingineri structurali cu experiență în proiecte civile și speciale, București.';
+---
+
+<Layout {title} {description}>
+  <div class="border-b border-slate-200 bg-slate-50 py-14">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <SectionTitle
+        eyebrow="Cine suntem"
+        title="500+ proiecte din 2006 — structuri inteligente și sigure"
+        subtitle="Fondată de Mihai Almășan și Aurel Dănăilă, echipa îmbină experiența din proiecte complexe cu rigoare în calcul și livrare."
+      />
+    </div>
+  </div>
+
+  <article class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <div class="prose prose-slate max-w-none prose-headings:font-display prose-a:text-amber-700">
+      <p class="text-lg leading-relaxed text-slate-600">
+        <strong class="text-slate-900">Alfa Structural Design</strong> a crescut din pasiunea pentru
+        proiectarea structurilor și dorința de profesionalism real în construcții. Experiența acumulată
+        alături de ingineri de top, inclusiv pe proiecte de anvergură, ne ghidează în fiecare calcul
+        și fiecare detaliu de execuție.
+      </p>
+      <h2 class="mt-12 text-slate-900">Ce ne propunem</h2>
+      <ul class="mt-4 space-y-2 text-slate-600">
+        <li>concept structural sigur și eficient, adaptat tipului de clădire;</li>
+        <li>metodologii și fluxuri de lucru clare, pentru documentații complete;</li>
+        <li>soluții moderne de calcul și detaliere, integrate în practica de șantier.</li>
+      </ul>
+      <p class="mt-6 text-slate-600 leading-relaxed">
+        Portofoliul include sute de clădiri rezidențiale și comerciale, cu diverse grade de
+        complexitate. Colaborăm de peste două decenii în aceeași formulă de echipă stabilă — ceea ce
+        se reflectă în consistența și calitatea livrabilelor.
+      </p>
+      <h2 class="mt-12 text-slate-900">De ce să lucrați cu noi</h2>
+      <p class="mt-4 text-slate-600 leading-relaxed">
+        <strong class="text-slate-900">Ingineri experimentați</strong> — profesioniști cu experiență
+        unită prin colaborare îndelungată.
+      </p>
+      <p class="mt-4 text-slate-600 leading-relaxed">
+        <strong class="text-slate-900">Soluții personalizate</strong> — pentru fiecare proiect căutăm
+        varianta optimă tehnică și economică.
+      </p>
+      <p class="mt-4 text-slate-600 leading-relaxed">
+        <strong class="text-slate-900">Documentații complete</strong> — softuri dedicate, detalii
+        clare pentru execuție.
+      </p>
+      <p class="mt-4 text-slate-600 leading-relaxed">
+        <strong class="text-slate-900">Termene respectate</strong> — pentru a menține ritmul în
+        execuție, fără blocaje evitabile.
+      </p>
+    </div>
+  </article>
+
+  <div class="pb-20">
+    <CtaBand />
+  </div>
+</Layout>

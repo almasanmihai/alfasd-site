@@ -1,0 +1,84 @@
+---
+const pathname = Astro.url.pathname;
+
+const links = [
+  { href: '/', label: 'Acasă' },
+  { href: '/servicii', label: 'Servicii' },
+  { href: '/portofoliu', label: 'Portofoliu' },
+  { href: '/despre', label: 'Despre noi' },
+  { href: '/contact', label: 'Contact' }
+];
+
+function active(href: string) {
+  if (href === '/') return pathname === '/';
+  return pathname.startsWith(href);
+}
+---
+
+<header
+  class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md"
+>
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+    <a href="/" class="flex items-center gap-2">
+      <img
+        src="/logo.svg"
+        alt="Alfa Structural Design — proiectare structuri"
+        class="h-9 w-auto sm:h-10"
+        width="180"
+        height="44"
+      />
+    </a>
+
+    <nav class="hidden items-center gap-1 md:flex" aria-label="Principal">
+      {links.map((l) => (
+        <a
+          href={l.href}
+          class:list={[
+            'rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+            active(l.href)
+              ? 'bg-slate-900 text-white'
+              : 'text-slate-700 hover:bg-slate-100'
+          ]}
+        >
+          {l.label}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      href="/contact"
+      class="hidden rounded-lg bg-amber-500 px-4 py-2 text-sm font-semibold text-brand-950 shadow-sm transition hover:bg-amber-400 sm:inline-flex"
+    >
+      Solicită ofertă
+    </a>
+
+    <details class="relative md:hidden">
+      <summary
+        class="list-none cursor-pointer rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-800 shadow-sm [&::-webkit-details-marker]:hidden"
+      >
+        Meniu
+      </summary>
+      <div
+        class="absolute right-0 mt-2 w-52 rounded-xl border border-slate-200 bg-white p-2 shadow-lg"
+      >
+        {links.map((l) => (
+          <a
+            href={l.href}
+            class:list={[
+              'block rounded-lg px-3 py-2 text-sm font-medium',
+              active(l.href) ? 'bg-slate-900 text-white' : 'text-slate-700 hover:bg-slate-50'
+            ]}
+          >
+            {l.label}
+          </a>
+        ))}
+        <a
+          href="/contact"
+          class="mt-1 block rounded-lg bg-amber-500 px-3 py-2 text-center text-sm font-semibold text-brand-950"
+        >
+          Solicită ofertă
+        </a>
+      </div>
+    </details>
+  </div>
+</header>

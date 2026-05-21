@@ -1,0 +1,129 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import { site } from '../site.config';
+
+const title = 'Contact';
+const description =
+  'Contactați Alfa Structural Design pentru proiectare structuri, expertize A1/A2 și consultanță. București, Nerva Traian. Telefon și email.';
+---
+
+<Layout {title} {description}>
+  <div class="border-b border-slate-200 bg-slate-50 py-14">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <SectionTitle
+        eyebrow="Scrieți-ne"
+        title="Spuneți-ne despre proiect"
+        subtitle="Revenim cu recomandări tehnice și o ofertă. Pentru urgențe, folosiți telefonul."
+      />
+    </div>
+  </div>
+
+  <div class="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-20">
+    <div>
+      <h2 class="font-display text-lg font-semibold text-slate-900">Date de contact</h2>
+      <ul class="mt-6 space-y-4 text-slate-600">
+        <li>
+          <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Adresă</p>
+          <p class="mt-1">
+            {site.address.street}<br />
+            {site.address.city}, {site.address.country}
+          </p>
+        </li>
+        <li>
+          <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Telefon</p>
+          <a href={`tel:${site.phoneTel}`} class="mt-1 inline-block font-medium text-amber-700 hover:underline">
+            {site.phone}
+          </a>
+        </li>
+        <li>
+          <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">E-mail</p>
+          <a href={`mailto:${site.email}`} class="mt-1 inline-block font-medium text-amber-700 hover:underline">
+            {site.email}
+          </a>
+        </li>
+        <li>
+          <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Program</p>
+          <p class="mt-1">{site.hours}</p>
+        </li>
+      </ul>
+      <p class="mt-8 text-sm text-slate-500 leading-relaxed">
+        Datele din formular sunt folosite doar pentru a vă răspunde. Detalii în
+        <a href="/politica-de-confidentialitate" class="text-amber-700 hover:underline"
+          >Politica de confidențialitate</a
+        >.
+      </p>
+    </div>
+
+    <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/contact/"
+        class="space-y-5"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hidden">
+          <label>
+            Nu completați acest câmp: <input name="bot-field" />
+          </label>
+        </p>
+        <div>
+          <label for="name" class="block text-sm font-medium text-slate-700">Nume</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            autocomplete="name"
+            class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 shadow-sm focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/30"
+          />
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium text-slate-700">E-mail</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            autocomplete="email"
+            class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 shadow-sm focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/30"
+          />
+        </div>
+        <div>
+          <label for="phone" class="block text-sm font-medium text-slate-700">Telefon (opțional)</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+            class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 shadow-sm focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/30"
+          />
+        </div>
+        <div>
+          <label for="message" class="block text-sm font-medium text-slate-700">Mesaj</label>
+          <textarea
+            id="message"
+            name="message"
+            rows={5}
+            required
+            class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 shadow-sm focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/30"
+            placeholder="Tip proiect, fază (PAC / D.T.A.C. / execuție), termen dorit…"
+          />
+        </div>
+        <button
+          type="submit"
+          class="w-full rounded-xl bg-amber-500 px-6 py-3 text-sm font-semibold text-slate-900 shadow-md transition hover:bg-amber-400"
+        >
+          Trimite mesajul
+        </button>
+      </form>
+      <p class="mt-4 text-xs text-slate-500">
+        Formular compatibil <strong>Netlify Forms</strong>. Pe alte hosturi, înlocuiți cu Formspree sau
+        un endpoint propriu (vezi README).
+      </p>
+    </div>
+  </div>
+</Layout>

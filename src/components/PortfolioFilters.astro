@@ -1,0 +1,56 @@
+---
+const filters = [
+  { id: 'all', label: 'Toate' },
+  { id: 'rezidential', label: 'Rezidențial' },
+  { id: 'industrial', label: 'Industrial' },
+  { id: 'educational', label: 'Educațional' },
+  { id: 'alte', label: 'Alte' }
+] as const;
+---
+
+<div class="flex flex-wrap gap-2" role="group" aria-label="Filtre portofoliu">
+  {filters.map((f) => (
+    <button
+      type="button"
+      class:list={[
+        'filter-btn rounded-full border px-4 py-2 text-sm font-medium shadow-sm transition',
+        f.id === 'all'
+          ? 'border-amber-500 bg-amber-50 text-amber-900'
+          : 'border-slate-200 bg-white text-slate-700 hover:border-amber-400 hover:text-slate-900'
+      ]}
+      data-filter={f.id}
+    >
+      {f.label}
+    </button>
+  ))}
+</div>
+
+<script>
+  const active =
+    'border-amber-500 bg-amber-50 text-amber-900';
+  const idle =
+    'border-slate-200 bg-white text-slate-700 hover:border-amber-400 hover:text-slate-900';
+
+  function initFilters() {
+    const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+    const cards = document.querySelectorAll<HTMLElement>('.project-card');
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter ?? 'all';
+        buttons.forEach((b) => {
+          b.className =
+            'filter-btn rounded-full border px-4 py-2 text-sm font-medium shadow-sm transition ' +
+            (b === btn ? active : idle);
+        });
+
+        cards.forEach((card) => {
+          const cat = card.dataset.category ?? '';
+          const show = filter === 'all' || cat === filter;
+          card.classList.toggle('hidden', !show);
+        });
+      });
+    });
+  }
+  initFilters();
+</script>
