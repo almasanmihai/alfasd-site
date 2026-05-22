@@ -11,6 +11,6 @@ export const site = {
     city: 'București',
     country: 'România'
   },
-  hours: 'Luni–Vineri: 09:00 – 18:00',
+  hours: 'Luni–Vineri: 09:00 – 17:00',
   sameAs: [] as string[]
 } as const;
