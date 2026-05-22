@@ -7,21 +7,18 @@
   },
   "scripts": {
     "sync-portfolio": "node scripts/sync-portfolio-folders.mjs",
-    "predev": "node scripts/sync-portfolio-folders.mjs",
-    "prebuild": "node scripts/sync-portfolio-folders.mjs",
+    "predev": "node scripts/sync-portfolio-folders.mjs && node scripts/generate-portfolio.mjs",
+    "prebuild": "node scripts/sync-portfolio-folders.mjs && node scripts/generate-portfolio.mjs",
+    "generate-portfolio": "node scripts/generate-portfolio.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.5.3",
     "@astrojs/sitemap": "^3.7.2",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.1.5",
     "tailwindcss": "^4.2.2"
-  },
-  "devDependencies": {
-    "wrangler": "^4.93.0"
   }
 }

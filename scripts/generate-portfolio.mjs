@@ -27,7 +27,8 @@ function scan() {
     const cover =
       files.find((f) => /^cover\./i.test(f)) || files[0] || '';
 
-    result[folder] = {
+    const mediaFolder = `portofoliu/${folder}`;
+    result[mediaFolder] = {
       cover: cover ? `/portofoliu/${folder}/${cover}` : '',
       gallery: files
         .filter((f) => f !== cover)

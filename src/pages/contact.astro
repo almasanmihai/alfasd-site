@@ -5,7 +5,9 @@ import { site } from '../site.config';
 
 const title = 'Contact';
 const description =
-  'Contactați Alfa Structural Design pentru proiectare structuri, expertize A1/A2 și consultanță. București, Nerva Traian. Telefon și email.';
+  'Contactați Alfa Structural Design pentru proiectare structuri, expertize A1/A2 și consultanță. București. Telefon și email.';
+
+const trimis = Astro.url.searchParams.get('trimis') === '1';
 ---
 
 <Layout {title} {description}>
@@ -56,15 +58,29 @@ const description =
     </div>
 
     <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+      {trimis && (
+        <div
+          class="mb-6 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-4 text-sm text-emerald-900"
+          role="status"
+        >
+          <p class="font-semibold">Mulțumim — mesajul a fost trimis.</p>
+          <p class="mt-1 text-emerald-800">
+            Revenim în curând cu un răspuns. Pentru urgențe, ne puteți suna la{' '}
+            <a href={`tel:${site.phoneTel}`} class="font-medium underline">
+              {site.phone}
+            </a>
+            .
+          </p>
+        </div>
+      )}
       <form
         name="contact"
         method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
         action="https://formspree.io/f/xpqnrazo"
         class="space-y-5"
       >
-       
+        <input type="hidden" name="_subject" value="Mesaj nou de pe alfasd.ro" />
+        <input type="hidden" name="_next" value="https://www.alfasd.ro/contact/?trimis=1" />
         <div>
           <label for="name" class="block text-sm font-medium text-slate-700">Nume</label>
           <input
