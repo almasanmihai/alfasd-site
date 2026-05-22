@@ -60,7 +60,8 @@ const trimis = Astro.url.searchParams.get('trimis') === '1';
     <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
       {trimis && (
         <div
-          class="mb-6 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-4 text-sm text-emerald-900"
+          id="contact-success"
+          class="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-4 text-sm text-emerald-900"
           role="status"
         >
           <p class="font-semibold">Mulțumim — mesajul a fost trimis.</p>
@@ -73,14 +74,24 @@ const trimis = Astro.url.searchParams.get('trimis') === '1';
           </p>
         </div>
       )}
+      <div
+        id="contact-error"
+        class="mb-6 hidden rounded-xl border border-red-200 bg-red-50 px-4 py-4 text-sm text-red-900"
+        role="alert"
+      >
+        <p class="font-semibold">Nu am putut trimite mesajul.</p>
+        <p class="mt-1">Încercați din nou sau scrieți-ne la <a href={`mailto:${site.email}`} class="underline">{site.email}</a>.</p>
+      </div>
+
+      {!trimis && (
       <form
+        id="contact-form"
         name="contact"
         method="POST"
         action="https://formspree.io/f/xpqnrazo"
         class="space-y-5"
       >
         <input type="hidden" name="_subject" value="Mesaj nou de pe alfasd.ro" />
-        <input type="hidden" name="_next" value="https://www.alfasd.ro/contact/?trimis=1" />
         <div>
           <label for="name" class="block text-sm font-medium text-slate-700">Nume</label>
           <input
@@ -125,15 +136,60 @@ const trimis = Astro.url.searchParams.get('trimis') === '1';
           />
         </div>
         <button
+          id="contact-submit"
           type="submit"
-          class="w-full rounded-xl bg-amber-500 px-6 py-3 text-sm font-semibold text-slate-900 shadow-md transition hover:bg-amber-400"
+          class="w-full rounded-xl bg-amber-500 px-6 py-3 text-sm font-semibold text-slate-900 shadow-md transition hover:bg-amber-400 disabled:cursor-not-allowed disabled:opacity-60"
         >
           Trimite mesajul
         </button>
       </form>
+      )}
+      {!trimis && (
       <p class="mt-4 text-xs text-slate-500">
         Mesajele sunt trimise direct prin formularul securizat de contact.
       </p>
+      )}
     </div>
   </div>
 </Layout>
+
+<script>
+  document.getElementById('contact-success')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('contact-submit');
+  const errorBox = document.getElementById('contact-error');
+
+  if (form instanceof HTMLFormElement) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBox?.classList.add('hidden');
+
+      if (submitBtn instanceof HTMLButtonElement) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Se trimite…';
+      }
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+
+        if (res.ok) {
+          window.location.href = '/contact/?trimis=1';
+          return;
+        }
+      } catch {
+        /* rețea / blocare */
+      }
+
+      errorBox?.classList.remove('hidden');
+      if (submitBtn instanceof HTMLButtonElement) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Trimite mesajul';
+      }
+    });
+  }
+</script>
