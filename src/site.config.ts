@@ -7,7 +7,7 @@ export const site = {
   phone: '+40 726 145 612',
   phoneTel: '+40726145612',
   address: {
-    street: 'Str. Nerva Traian, nr. 23–25, bl. M71, apt. 47',
+    street: 'Strada Agricultori 37-39, etaj 2',
     city: 'București',
     country: 'România'
   },

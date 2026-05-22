@@ -61,15 +61,10 @@ const description =
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
-        action="/contact/"
+        action="https://formspree.io/f/xpqnrazo"
         class="space-y-5"
       >
-        <input type="hidden" name="form-name" value="contact" />
-        <p class="hidden">
-          <label>
-            Nu completați acest câmp: <input name="bot-field" />
-          </label>
-        </p>
+       
         <div>
           <label for="name" class="block text-sm font-medium text-slate-700">Nume</label>
           <input
@@ -121,8 +116,7 @@ const description =
         </button>
       </form>
       <p class="mt-4 text-xs text-slate-500">
-        Formular compatibil <strong>Netlify Forms</strong>. Pe alte hosturi, înlocuiți cu Formspree sau
-        un endpoint propriu (vezi README).
+        Mesajele sunt trimise direct prin formularul securizat de contact.
       </p>
     </div>
   </div>
