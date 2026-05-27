@@ -1,7 +1,7 @@
 ---
 title: Structuri pentru instalații industriale
 category: industrial
-typology: Suport tehnic structural pentru echipamente și hale
+typology: Suport tehnic structural pentru echipamente industriale
 region: România
 materials:
   - beton armat

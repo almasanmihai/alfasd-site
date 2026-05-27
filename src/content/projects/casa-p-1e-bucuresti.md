@@ -1,7 +1,7 @@
 ---
 title: Casă locuință P+1E — București
 category: rezidential
-typology: Structură mică — beton armat / zidărie portantă (conform proiectului)
+typology: Structură mică — cadre din beton armat
 region: București
 materials:
   - beton armat
@@ -13,4 +13,4 @@ order: 3
 mediaFolder: portofoliu/casa P+1E Bucuresti
 ---
 
-Proiectare structurală pentru locuință unifamiliară pe două niveluri. Soluții clare pentru fundații, planșee și acoperiș, cu detalii ușor de urmărit pe șantier.
+Proiectare structurală pentru locuință unifamiliară pe două niveluri. Soluții clare pentru fundații, stalpi, planșee și grinzi, cu detalii ușor de urmărit pe șantier.

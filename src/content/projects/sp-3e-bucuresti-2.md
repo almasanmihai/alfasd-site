@@ -1,7 +1,7 @@
 ---
 title: Imobil locuințe S+P+3E — București (proiect 2)
 category: rezidential
-typology: Structură beton armat
+typology: Structură duala beton armat
 region: București
 materials:
   - beton armat

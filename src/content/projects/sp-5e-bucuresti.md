@@ -12,4 +12,4 @@ order: 11
 mediaFolder: portofoliu/S+P+5E Bucuresti
 ---
 
-Proiectare structură pentru imobil cu subsol, parter și cinci etaje. Imagini din faze diferite ale execuției — fundații, structură și finisaje de șantier.
+Proiectare structură pentru imobil cu subsol, parter și cinci etaje. Imagini din faze diferite ale execuției — radier, stalpi, grinzi și placi.
