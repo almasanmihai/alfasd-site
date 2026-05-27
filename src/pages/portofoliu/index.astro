@@ -8,7 +8,7 @@ import { getCollection } from 'astro:content';
 
 const title = 'Portofoliu';
 const description =
-  'Proiecte de proiectare structuri de rezistență — rezidențial, educațional și altele. Exemple anonimizate; imagini pot fi adăugate în public/images/projects.';
+  'Proiecte de proiectare structuri de rezistență — rezidențial, educațional și altele.';
 
 const projects = (await getCollection('projects')).sort(
   (a, b) => a.data.order - b.data.order || a.data.title.localeCompare(b.data.title)
