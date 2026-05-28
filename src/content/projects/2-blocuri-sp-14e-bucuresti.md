@@ -1,13 +1,13 @@
 ---
 title: Două blocuri locuințe S+P+14E — București
 category: rezidential
-typology: Structură beton armat, două corpuri cu regim mare de inaltime
+typology: Structură beton armat, două corpuri cu regim mare de înălțime
 region: București
 materials:
   - beton armat
 tags:
   - rezidential
-  - inalt
+  - înalt
 featured: true
 order: 1
 mediaFolder: portofoliu/2 blocuri S+P+14E Bucuresti

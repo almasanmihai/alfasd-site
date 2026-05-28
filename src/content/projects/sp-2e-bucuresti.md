@@ -1,7 +1,7 @@
 ---
 title: Imobil locuințe S+P+2E — București
 category: rezidential
-typology: Structură in cadre de beton armat, regim redus de inaltime
+typology: Structură în cadre de beton armat, regim redus de înălțime
 region: București
 materials:
   - beton armat

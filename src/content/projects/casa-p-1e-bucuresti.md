@@ -13,4 +13,4 @@ order: 3
 mediaFolder: portofoliu/casa P+1E Bucuresti
 ---
 
-Proiectare structurală pentru locuință unifamiliară pe două niveluri. Soluții clare pentru fundații, stalpi, planșee și grinzi, cu detalii ușor de urmărit pe șantier.
+Proiectare structurală pentru locuință unifamiliară pe două niveluri. Soluții clare pentru fundații, stâlpi, planșee și grinzi, cu detalii ușor de urmărit pe șantier.
